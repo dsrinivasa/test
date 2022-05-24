@@ -21,9 +21,6 @@ def export_tasks(request):
         parent = "projects/second-flame-351109",
         content_type = "RESOURCE",
         asset_types = [
-            "cloudfunctions.googleapis.com/CloudFunction",             
-            "compute.googleapis.com/ForwardingRule",
-            "iam.googleapis.com.*",
             "logging.googleapis.com/LogBucket"
         ],
         output_config = output_config,
