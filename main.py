@@ -32,7 +32,7 @@ def export_tasks(request):
     operation = client.export_assets(request=request)
     
     #msg_body = base64.b64decode(event['data']).decode('utf-8')
-    print('Exporting: {}'.format(msg_body))
+    #print('Exporting: {}'.format(msg_body))
     response = operation.result()
     return "Success", 200
     # handle response
