@@ -9,14 +9,14 @@ def export_tasks(request):
     # PARTITION_KEY_UNSPECIFIED = 0
     # READ_TIME = 1
     # REQUEST_TIME = 2
-    partition_spec = asset_v1.PartitionSpec()
-    partition_spec.partition_key = 1
+    #partition_spec = asset_v1.PartitionSpec()
+    #partition_spec.partition_key = 1
     # init request
     output_config = asset_v1.OutputConfig()
     output_config.bigquery_destination.dataset = "projects/second-flame-351109/datasets/cloud_assets"
     output_config.bigquery_destination.table = "data"
     output_config.bigquery_destination.force = True
-    output_config.bigquery_destination.parition_spec = partition_spec
+    #output_config.bigquery_destination.parition_spec = partition_spec
     request = asset_v1.ExportAssetsRequest(
         parent = "projects/second-flame-351109",
         content_type = "RESOURCE",
@@ -31,8 +31,9 @@ def export_tasks(request):
     # make request
     operation = client.export_assets(request=request)
     
-    msg_body = base64.b64decode(event['data']).decode('utf-8')
+    #msg_body = base64.b64decode(event['data']).decode('utf-8')
     print('Exporting: {}'.format(msg_body))
     response = operation.result()
+    return "Success", 200
     # handle response
-    print(response)
+    #print(response)
